@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://do1apah2orc5d"]
+
+[ext_resource type="Script" uid="uid://diog42jtow7ra" path="res://scripts/entidades/jefe_cocinero.gd" id="1_dmomj"]
+[ext_resource type="Texture2D" uid="uid://bk8lcklk7vo4e" path="res://assets/sprites/jefe-enemigo/boss_cocinero.png" id="2_3vi64"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jixr7"]
+radius = 7.0
+height = 18.0
+
+[node name="JefeCocinero" type="CharacterBody2D" unique_id=766314981]
+position = Vector2(561, 323)
+script = ExtResource("1_dmomj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=438949400]
+texture = ExtResource("2_3vi64")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1134430892]
+shape = SubResource("CapsuleShape2D_jixr7")

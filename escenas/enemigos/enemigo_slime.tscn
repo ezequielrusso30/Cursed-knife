@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dgvwfh1dppqpk"]
+
+[ext_resource type="Script" uid="uid://58bek1kfbyid" path="res://scripts/entidades/enemigo_slime.gd" id="1_di3wt"]
+[ext_resource type="Texture2D" uid="uid://dmvmt75ig377y" path="res://assets/sprites/enemigos/slime_idle.png" id="2_58q64"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jixr7"]
+radius = 6.0
+
+[node name="EnemigoSlime" type="CharacterBody2D" unique_id=1320728546]
+position = Vector2(566, 342)
+script = ExtResource("1_di3wt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2005565527]
+texture = ExtResource("2_58q64")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1087957884]
+shape = SubResource("CircleShape2D_jixr7")
