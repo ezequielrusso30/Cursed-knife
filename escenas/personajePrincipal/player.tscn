@@ -1,12 +1,20 @@
 [gd_scene format=3 uid="uid://dt45iul2gkqot"]
 
 [ext_resource type="Texture2D" uid="uid://dgyevrycwjl3r" path="res://assets/sprites/player/player_idle.png" id="1_4tc14"]
+[ext_resource type="Script" uid="uid://becyjadpor3rb" path="res://scripts/entidades/jugador.gd" id="1_5iy1i"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b3q7j"]
+radius = 5.5
+height = 15.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pasq1"]
+size = Vector2(16.375, 20)
 
 [node name="Node2D" type="Node2D" unique_id=1030949798]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1980027441]
+scale = Vector2(2, 2)
+script = ExtResource("1_5iy1i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=258289334]
 shape = SubResource("CapsuleShape2D_b3q7j")
@@ -14,3 +22,10 @@ shape = SubResource("CapsuleShape2D_b3q7j")
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1423892501]
 texture_filter = 1
 texture = ExtResource("1_4tc14")
+
+[node name="Ataque" type="Area2D" parent="CharacterBody2D" unique_id=1045827352]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Ataque" unique_id=206677493]
+position = Vector2(24.1875, 0)
+shape = SubResource("RectangleShape2D_pasq1")
+debug_color = Color(0.8474487, 0.14616391, 0.424598, 0.41960785)
