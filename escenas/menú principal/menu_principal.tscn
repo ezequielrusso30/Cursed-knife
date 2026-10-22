@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://c8lbeqepddu52"]
+
+[node name="MenuPrincipal" type="Control" unique_id=523080787]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fondo" type="ColorRect" parent="." unique_id=1066140469]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Centrar" type="CenterContainer" parent="." unique_id=53444039]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Cursed Knife" type="Label" parent="." unique_id=2132426234]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 3.0
+offset_right = 57.0
+offset_bottom = 6.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1
+text = "CURSED KNIFE"
+
+[node name="Botones" type="VBoxContainer" parent="." unique_id=1226232451]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Jugar" type="Button" parent="." unique_id=984908734]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 6.0
+offset_right = 27.0
+offset_bottom = 17.0
+theme_override_font_sizes/font_size = 1
+text = "JUGAR"
+
+[node name="Opciones" type="Button" parent="." unique_id=1408143255]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 17.0
+offset_right = 28.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 1
+text = "OPCIONES"
+
+[node name="Salir" type="Button" parent="." unique_id=554444754]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 28.0
+offset_right = 26.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 1
+text = "SALIR"
