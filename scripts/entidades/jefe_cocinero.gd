@@ -119,7 +119,7 @@ func al_recibir_parry() -> void:
 	_tiempo_aturdido = 2.0
 	velocity = Vector2.ZERO
 	quedo_aturdido.emit()
-	print("¡Parry exitoso! El Jefe Cociner quedo aturdido")
+	print("¡Parry exitoso! El Jefe Cocinero quedo aturdido")
 
 # --- POLIMORFISMO: Muerte y Recompensa del MVP ---
 func morir() -> void:
