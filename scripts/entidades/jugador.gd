@@ -14,5 +14,5 @@ func get_input():
 	velocity = input_direction * speed
 	velocity.normalized()
 	if Input.is_action_just_pressed("golpear") :
-		
+		$Ataque/CollisionShape2D.set("disabled", false) 
 		pass

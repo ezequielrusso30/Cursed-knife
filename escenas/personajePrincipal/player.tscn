@@ -28,4 +28,5 @@ texture = ExtResource("1_4tc14")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Ataque" unique_id=206677493]
 position = Vector2(24.1875, 0)
 shape = SubResource("RectangleShape2D_pasq1")
+disabled = true
 debug_color = Color(0.8474487, 0.14616391, 0.424598, 0.41960785)
