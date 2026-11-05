@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://5ryged11a30c"]
+
+[node name="Control" type="Control" unique_id=1835380868]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fondo" type="ColorRect" parent="." unique_id=1392439590]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 649.0
+
+[node name="Centrar" type="CenterContainer" parent="." unique_id=1747958842]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Botones" type="VBoxContainer" parent="." unique_id=1735257308]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="_" type="Button" parent="." unique_id=64302478]
+layout_mode = 0
+offset_left = 313.0
+offset_top = 162.0
+offset_right = 887.0
+offset_bottom = 239.0
+theme_override_font_sizes/font_size = 50
+text = ".
+"
