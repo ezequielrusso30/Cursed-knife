@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dyo0bmiie1akf"]
+
+[ext_resource type="Script" uid="uid://dpbisxu3cylti" path="res://scripts/ui/pausa.gd" id="1_nugm1"]
+
+[node name="Pausa" type="CanvasLayer" unique_id=441528509]
+process_mode = 3
+script = ExtResource("1_nugm1")
+
+[node name="Control" type="Control" parent="." unique_id=1897072543]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fondo" type="ColorRect" parent="Control" unique_id=451434195]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="Centrar" type="CenterContainer" parent="Control" unique_id=1624561229]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Botones" type="VBoxContainer" parent="Control/Centrar" unique_id=367399537]
+layout_mode = 2
+
+[node name="Titulo" type="Label" parent="Control/Centrar/Botones" unique_id=1269514020]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "PAUSA"
+
+[node name="Reanudar" type="Button" parent="Control/Centrar/Botones" unique_id=1833802319]
+layout_mode = 2
+text = "REANUDAR"
+
+[node name="SalirMenu" type="Button" parent="Control/Centrar/Botones" unique_id=1415007328]
+layout_mode = 2
+text = "SALIR A MENU"

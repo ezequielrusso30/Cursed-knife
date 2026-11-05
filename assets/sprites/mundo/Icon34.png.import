@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkea8c1io4kvd"
-path="res://.godot/imported/tile_suelo.png-a7e37781ef6565a2f5ad4a0ab260b973.ctex"
+uid="uid://c2k3f50lodbne"
+path="res://.godot/imported/Icon34.png-45b3fb47f8d9cc0db175726bed731f51.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/mundo/tiles/tile_suelo.png"
-dest_files=["res://.godot/imported/tile_suelo.png-a7e37781ef6565a2f5ad4a0ab260b973.ctex"]
+source_file="res://assets/sprites/mundo/Icon34.png"
+dest_files=["res://.godot/imported/Icon34.png-45b3fb47f8d9cc0db175726bed731f51.ctex"]
 
 [params]
 

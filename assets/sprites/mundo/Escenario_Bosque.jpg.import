@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://das3r4bsbeh4w"
-path="res://.godot/imported/tile_horno.png-62c07c62d612c048616ac8f9c9af1001.ctex"
+uid="uid://76m2pyffmuy4"
+path="res://.godot/imported/Escenario_Bosque.jpg-4d8527e14e5f0eb22b9e0ad916e65064.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/mundo/tiles/tile_horno.png"
-dest_files=["res://.godot/imported/tile_horno.png-62c07c62d612c048616ac8f9c9af1001.ctex"]
+source_file="res://assets/sprites/mundo/Escenario_Bosque.jpg"
+dest_files=["res://.godot/imported/Escenario_Bosque.jpg-4d8527e14e5f0eb22b9e0ad916e65064.ctex"]
 
 [params]
 

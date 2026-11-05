@@ -10,23 +10,32 @@ height = 15.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pasq1"]
 size = Vector2(16.375, 20)
 
-[node name="Node2D" type="Node2D" unique_id=1030949798]
+[node name="Player" type="Node2D" unique_id=1030949798]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1980027441]
+[node name="jugador" type="CharacterBody2D" parent="." unique_id=1980027441]
+z_index = 1
 scale = Vector2(2, 2)
 script = ExtResource("1_5iy1i")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=258289334]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="jugador" unique_id=258289334]
 shape = SubResource("CapsuleShape2D_b3q7j")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1423892501]
+[node name="Sprite2D" type="Sprite2D" parent="jugador" unique_id=1423892501]
 texture_filter = 1
 texture = ExtResource("1_4tc14")
 
-[node name="Ataque" type="Area2D" parent="CharacterBody2D" unique_id=1045827352]
+[node name="Ataque" type="Area2D" parent="jugador" unique_id=1045827352]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Ataque" unique_id=206677493]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="jugador/Ataque" unique_id=206677493]
 position = Vector2(24.1875, 0)
 shape = SubResource("RectangleShape2D_pasq1")
 disabled = true
 debug_color = Color(0.8474487, 0.14616391, 0.424598, 0.41960785)
+
+[node name="Camera2D" type="Camera2D" parent="jugador" unique_id=930015925]
+position = Vector2(0, -7.5)
+limit_left = 0
+limit_top = 0
+limit_right = 1376
+limit_bottom = 768
+position_smoothing_enabled = true

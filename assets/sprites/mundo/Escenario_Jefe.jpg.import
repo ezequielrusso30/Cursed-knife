@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0aevgosv50rv"
-path="res://.godot/imported/tile_mesa.png-413055ba0ead507d7db343c23384339a.ctex"
+uid="uid://d2wvkgi741ui0"
+path="res://.godot/imported/Escenario_Jefe.jpg-1a2a3287015665dabded65c182fecfba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/mundo/tiles/tile_mesa.png"
-dest_files=["res://.godot/imported/tile_mesa.png-413055ba0ead507d7db343c23384339a.ctex"]
+source_file="res://assets/sprites/mundo/Escenario_Jefe.jpg"
+dest_files=["res://.godot/imported/Escenario_Jefe.jpg-1a2a3287015665dabded65c182fecfba.ctex"]
 
 [params]
 

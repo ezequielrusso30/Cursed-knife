@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b6xpyhwlmtwo"]
+
+[ext_resource type="Texture2D" uid="uid://c2k3f50lodbne" path="res://assets/sprites/mundo/Icon34.png" id="1_twkks"]
+[ext_resource type="Script" uid="uid://sh6dej276uei" path="res://scripts/mundo/puerta.gd" id="1_yrtor"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jixr7"]
+size = Vector2(24, 12)
+
+[node name="Puerta" type="Area2D" unique_id=1047688538]
+script = ExtResource("1_yrtor")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1339833648]
+shape = SubResource("RectangleShape2D_jixr7")
+
+[node name="Icon34" type="Sprite2D" parent="." unique_id=279427270]
+position = Vector2(2.682209e-07, -2.0861626e-07)
+scale = Vector2(0.75, 0.375)
+texture = ExtResource("1_twkks")

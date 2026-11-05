@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://deye6ps6aa67l"
-path="res://.godot/imported/tile_pared.png-c17bc7c78dd318c92f118d498f8b9c5e.ctex"
+uid="uid://83gkxl0qprt8"
+path="res://.godot/imported/Escenario_Taberna.jpg-f24eb01d7f5efa5d607a137bee449442.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/mundo/tiles/tile_pared.png"
-dest_files=["res://.godot/imported/tile_pared.png-c17bc7c78dd318c92f118d498f8b9c5e.ctex"]
+source_file="res://assets/sprites/mundo/Escenario_Taberna.jpg"
+dest_files=["res://.godot/imported/Escenario_Taberna.jpg-f24eb01d7f5efa5d607a137bee449442.ctex"]
 
 [params]
 
