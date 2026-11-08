@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dgvwfh1dppqpk" path="res://escenas/enemigos/enemigo_slime.tscn" id="3_7towi"]
 [ext_resource type="PackedScene" uid="uid://b6xpyhwlmtwo" path="res://escenas/mundo/puerta.tscn" id="5_srqyd"]
 [ext_resource type="PackedScene" uid="uid://dyo0bmiie1akf" path="res://escenas/ui/pausa.tscn" id="6_kdvbw"]
+[ext_resource type="Script" uid="uid://dg7pmpyjinl0o" path="res://scripts/cocina/spawneador_ingredientes.gd" id="7_g43oi"]
+[ext_resource type="PackedScene" uid="uid://l3q62ouinevv" path="res://escenas/cocina/ingredientes.tscn" id="7_s6xer"]
+[ext_resource type="PackedScene" uid="uid://quo4q2vppimb" path="res://escenas/ui/hud.tscn" id="9_s0f2h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3m2a0"]
 texture = ExtResource("1_7klkg")
@@ -1630,3 +1633,11 @@ position = Vector2(327, -142)
 escena_destino = "res://escenas/mundo/cocina_jefe.tscn"
 
 [node name="Pausa" parent="." unique_id=441528509 instance=ExtResource("6_kdvbw")]
+visible = false
+
+[node name="SpawnerIngredientes" type="Node2D" parent="." unique_id=1922570967 node_paths=PackedStringArray("mapa")]
+script = ExtResource("7_g43oi")
+escena_ingrediente = ExtResource("7_s6xer")
+mapa = NodePath("..")
+
+[node name="HUD" parent="." unique_id=1460212074 instance=ExtResource("9_s0f2h")]

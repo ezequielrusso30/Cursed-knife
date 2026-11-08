@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://bevtybck8fepq"]
+
+[ext_resource type="Script" uid="uid://d1asq0pnxew4p" path="res://scripts/cocina/olla.gd" id="1_smxx1"]
+[ext_resource type="Texture2D" uid="uid://bx8q6lumfjgkn" path="res://assets/sprites/mundo/olla_sheet.png" id="1_t32sr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smxx1"]
+atlas = ExtResource("1_t32sr")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wfyp"]
+atlas = ExtResource("1_t32sr")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5m4ts"]
+atlas = ExtResource("1_t32sr")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c678d"]
+atlas = ExtResource("1_t32sr")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jixr7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smxx1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wfyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5m4ts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c678d")
+}],
+"loop": 1,
+"name": &"burbujeo",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jixr7"]
+radius = 85.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3pib7"]
+radius = 150.0
+
+[node name="Olla" type="StaticBody2D" unique_id=1820967151]
+script = ExtResource("1_smxx1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1067946891]
+texture_filter = 1
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_jixr7")
+animation = &"burbujeo"
+frame = 2
+frame_progress = 0.24549216
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=757386777]
+position = Vector2(0, 10)
+shape = SubResource("CircleShape2D_jixr7")
+
+[node name="ZonaCoccion" type="Area2D" parent="." unique_id=1903841951]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZonaCoccion" unique_id=1859864013]
+shape = SubResource("CircleShape2D_3pib7")
+
+[node name="BarraFondo" type="ColorRect" parent="." unique_id=1020991271]
+offset_left = -50.0
+offset_top = -120.0
+offset_right = 50.0
+offset_bottom = -110.0
+color = Color(0, 0, 0, 0.7294118)
+
+[node name="BarraCoccion" type="ColorRect" parent="." unique_id=563122003]
+offset_left = -50.0
+offset_top = -120.0
+offset_right = 50.0
+offset_bottom = -110.0
+color = Color(1, 0.57396513, 0.20906562, 1)

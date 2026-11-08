@@ -1,3 +1,5 @@
+## Puerta - Area de transicion entre escenas.
+## Al entrar el jugador, cambia de escena usando GameManager.
 extends Area2D
 
 @export var escena_destino: String

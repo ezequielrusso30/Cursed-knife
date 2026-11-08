@@ -1,3 +1,5 @@
+## Taberna - Hub del juego entre expediciones.
+## Ubica al jugador en el spawn segun la entrada usada.
 extends Node2D
 
 func _ready() -> void:

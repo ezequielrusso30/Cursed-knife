@@ -13,7 +13,7 @@ extends Enemigo
 @export var _probabilidad_drop: float = 0.7
 
 #Referencias visuales  (nodos hijos en la escena
-@onready var _sprite: Sprite2D = $Sprite2D
+@onready var _anim: AnimatedSprite2D = $AnimatedSprite2D
 
 var _timer_salto: float = 0.0
 @warning_ignore("unused_private_class_variable")
@@ -24,16 +24,25 @@ func _ready() -> void:
 	super._ready() # Inicia la salud de la clase base
 	_nombre = "Slime de Mazmorra"
 	_timer_salto = _tiempo_entre_saltos
+	_objetivo = get_tree().get_first_node_in_group("jugador")
+	_anim.play("idle")
+	$Hitbox.body_entered.connect(_on_hitbox_body_entered)
 
 # --- POLIMORFISMO: Sobreescribimos perseguir_objetivo ---
 ## El slime acumula tiempo y se impulsa hacia el jugador
 func perseguir_objetivo(delta: float) -> void:
-	var distancia = global_position.distance_to(_objetivo.global_position)
-	#Solo salta si el jugador esta dentro de su rango de deteccion
-	if distancia > _rango_deteccion:
+	if _timer_salto <= 0.0:
+		var direccion = global_position.direction_to(_objetivo.global_position)
+		velocity = direccion * _fuerza_salto
+		_timer_salto = _tiempo_entre_saltos
+		if _anim and direccion.x != 0:
+			_anim.flip_h = direccion.x < 0
+		_anim.play("walk")
+	else:
 		velocity = velocity.move_toward(Vector2.ZERO, _friccion * delta)
+		if velocity.length() < 10:
+			_anim.play("idle")
 		move_and_slide()
-		return
 
 	_timer_salto -= delta
 	if _timer_salto <= 0.0:
@@ -43,8 +52,8 @@ func perseguir_objetivo(delta: float) -> void:
 		_timer_salto = _tiempo_entre_saltos
 
 		#Orientar el sprite segun hacia donde salta
-		if _sprite and  direccion.x != 0:
-			_sprite.flip_h = direccion.x < 0
+		if _anim and  direccion.x != 0:
+			_anim.flip_h = direccion.x < 0
 	else:
 		#Aplicamos friccion mientras aterriza o espera el proximo salto
 		velocity = velocity.move_toward(Vector2.ZERO, _friccion * delta)
@@ -57,11 +66,30 @@ func atacar() -> void:
 	#El slime daña por contacto fisico al tocar al jugador
 	pass
 
+func recibir_danio(cantidad: float) -> void:
+	super.recibir_danio(cantidad)
+	if esta_vivo():
+		_anim.play("hurt")
+
 
 # --- POLIMORFISMO: Sobreescribimos _soltar_drop ---
 ## Al morir, evalua si suelta un ingrediente para la taberna
 func _soltar_drop() -> void:
-	var azar = randf()
-	if azar <= _probabilidad_drop:
-		print("El slime solto un ingrediente de cocina")
-	#Aca instanciamos el item en la posicion actual
+	if randf() > _probabilidad_drop:
+		return
+
+	var padre := get_parent()
+	var escena: PackedScene = preload("res://escenas/cocina/ingredientes.tscn")
+	var datos := CatalogoIngredientes.elegir_aleatorio()
+	var ing: Ingrediente = escena.instantiate()
+	ing.nombre_ingrediente = datos["nombre"]
+	ing.textura = datos["textura"]
+	ing.position = padre.to_local(global_position)
+
+	# No se puede agregar un Area2D mientras el motor resuelve colisiones
+	# (justo cuando el slime muere por el golpe). Lo dejamos para el final del frame.
+	padre.call_deferred("add_child", ing)
+
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	if body.is_in_group("jugador") and body.has_method("recibir_danio"):
+		body.recibir_danio(_danio_contacto)

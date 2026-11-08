@@ -78,3 +78,13 @@ func animacion(direccion , estadoPJ): # toma la ultima direccion del jugador y s
 	else :
 		$AnimatedSprite2D.play("Death" + direccion)
 	
+## Aplica el efecto de un ingrediente cocinado.
+func aplicar_efecto(efecto: Dictionary) -> void:
+	match efecto.get("tipo", ""):
+		"danio":
+			dmg += efecto.get("valor", 0)
+		"velocidad":
+			speed += efecto.get("valor", 0)
+		"curacion":
+			_vida = min(vidaMax, _vida + efecto.get("valor", 0))
+			EventBus.ui_actualizar_vida.emit(int(_vida), int(vidaMax))

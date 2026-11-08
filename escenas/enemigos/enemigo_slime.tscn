@@ -1,17 +1,33 @@
 [gd_scene format=3 uid="uid://dgvwfh1dppqpk"]
 
 [ext_resource type="Script" uid="uid://58bek1kfbyid" path="res://scripts/entidades/enemigo_slime.gd" id="1_di3wt"]
-[ext_resource type="Texture2D" uid="uid://dmvmt75ig377y" path="res://assets/sprites/enemigos/slime_idle.png" id="2_58q64"]
+[ext_resource type="SpriteFrames" uid="uid://cem8rglvvmvl" path="res://assets/sprites/enemigos/slime/enemigo_slime.tres" id="2_di3wt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y0mr1"]
+radius = 6.0
+height = 12.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jixr7"]
-radius = 6.0
 
 [node name="EnemigoSlime" type="CharacterBody2D" unique_id=1320728546]
-position = Vector2(566, 342)
+z_index = 1
+position = Vector2(551, 330)
+collision_layer = 2
 script = ExtResource("1_di3wt")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2005565527]
-texture = ExtResource("2_58q64")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=283377308]
+position = Vector2(1, -11)
+scale = Vector2(0.6, 0.6)
+sprite_frames = ExtResource("2_di3wt")
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1087957884]
+position = Vector2(0, -11)
+shape = SubResource("CapsuleShape2D_y0mr1")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1664634602]
+position = Vector2(0, -11)
+scale = Vector2(0.6, 0.6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=206820496]
 shape = SubResource("CircleShape2D_jixr7")

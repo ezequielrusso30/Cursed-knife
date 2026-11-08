@@ -1,3 +1,4 @@
+@abstract
 class_name PatronAtaque
 extends RefCounted
 
@@ -20,8 +21,9 @@ func actualizar_cooldown(delta: float) -> void:
 
 
 ## Metodo abstracto
-func ejecutar(_jefe: CharacterBody2D, _objetivo: Node2D) -> void:
-	push_error("El metodo ejecutar() deber ser implementado por la estrategia concreta")
+## Cada estrategia concreta define como ejecuta su ataque
+@abstract
+func ejecutar(jefe: CharacterBody2D, objetivo: Node2D) -> void
 
 ## Metodo abstracto
 func detener(_jefe: CharacterBody2D) -> void:
@@ -30,3 +32,11 @@ func detener(_jefe: CharacterBody2D) -> void:
 
 func get_duracion() -> float:
 	return _tiempo_duracion
+
+## Cada estrategia concreta define su animacion y si es parryable.
+## Por defecto: ataque frontal, sin ventana de parry.
+func get_animacion() -> String:
+	return "attack_down"
+
+func es_parryable() -> bool:
+	return false
