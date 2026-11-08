@@ -24,6 +24,7 @@ signal jefe_murio(jefe: Node)
 # Señales de items/inventario
 signal item_dropeado(item: Node, posicion: Vector2)
 signal item_recolectado(datos_item: Dictionary)
+signal receta_obtenida
 
 # Señales de UI
 signal ui_actualizar_vida(vida_actual: int, vida_max: int)

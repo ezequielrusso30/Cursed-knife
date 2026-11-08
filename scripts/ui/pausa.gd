@@ -1,3 +1,5 @@
+## Pausa - Menu de pausa del juego.
+## Se abre con la tecla de pausa y permite reanudar o volver al menu.
 extends CanvasLayer
 
 func _ready() -> void:

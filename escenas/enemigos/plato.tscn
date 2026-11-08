@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cehto05141c3h"]
+
+[ext_resource type="Texture2D" uid="uid://c7g0cyxpx3bsm" path="res://assets/sprites/jefe-enemigo/plato_jefe.png" id="1_4q1a8"]
+[ext_resource type="Script" uid="uid://bekajtqatepv0" path="res://scripts/entidades/plato.gd" id="1_crh2k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jixr7"]
+radius = 12.0
+
+[node name="Plato" type="Area2D" unique_id=2116992594]
+script = ExtResource("1_crh2k")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1208944585]
+texture_filter = 1
+texture = ExtResource("1_4q1a8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=794510178]
+shape = SubResource("CircleShape2D_jixr7")

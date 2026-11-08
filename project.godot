@@ -16,9 +16,11 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 
 [autoload]
 
-FaseManager="*uid://o2dklyjhk7q6"
 EventBus="*uid://bhovxtfsqa566"
 GameManager="*uid://bvdmwb6emaim0"
+Inventario="*uid://dbc2p3peaycox"
+EstadoJugador="*uid://bemur47arabc3"
+FaseManager="*uid://o2dklyjhk7q6"
 
 [display]
 

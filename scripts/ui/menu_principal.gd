@@ -1,3 +1,5 @@
+## Menu principal - Pantalla de inicio del juego.
+## Botones para jugar, ver opciones y salir.
 extends Control
 
 func _ready() -> void:

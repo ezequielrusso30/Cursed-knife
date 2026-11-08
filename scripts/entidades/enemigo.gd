@@ -1,3 +1,4 @@
+@abstract
 class_name Enemigo
 extends CharacterBody2D
 
@@ -68,11 +69,12 @@ func esta_vivo() -> bool:
 # --- METODOS VIRTUALES (Polimorfismo para que implementen los hijos) ---
 
 ## Metodo abstracto: cada subclase define como persigue (el slime salta, el jefe camina/carga)
-func perseguir_objetivo(_delta: float) -> void:
-	push_error("El metodo perseguir_objetivo() debe ser implementado por la subclase")
+@abstract
+func perseguir_objetivo(delta: float) -> void
 
-func atacar() -> void:
-	push_error("El metodo atacar() debe ser implementado por la subclase")
+## Cada subclase define su forma de atacar (embestida, platos, etc.)
+@abstract
+func atacar() -> void
 
 ## Metodo virtual: sobrescrito si el enemigo suelta ingredientes (Slime) o recetas/sellos (Jefe)
 func _soltar_drop() -> void:

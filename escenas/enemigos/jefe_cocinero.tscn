@@ -1,18 +1,30 @@
 [gd_scene format=3 uid="uid://do1apah2orc5d"]
 
 [ext_resource type="Script" uid="uid://diog42jtow7ra" path="res://scripts/entidades/jefe_cocinero.gd" id="1_dmomj"]
-[ext_resource type="Texture2D" uid="uid://bk8lcklk7vo4e" path="res://assets/sprites/jefe-enemigo/boss_cocinero.png" id="2_3vi64"]
+[ext_resource type="SpriteFrames" uid="uid://bmpngritrf256" path="res://assets/sprites/jefe-enemigo/jefe_cocinero.tres" id="2_dmomj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jixr7"]
-radius = 7.0
-height = 18.0
+radius = 20.0
+height = 44.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jixr7"]
+radius = 24.0
 
 [node name="JefeCocinero" type="CharacterBody2D" unique_id=766314981]
+z_index = 1
 position = Vector2(561, 323)
+collision_layer = 2
 script = ExtResource("1_dmomj")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=438949400]
-texture = ExtResource("2_3vi64")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=760216810]
+sprite_frames = ExtResource("2_dmomj")
+animation = &"idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1134430892]
+position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_jixr7")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=770113881]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=547831375]
+shape = SubResource("CircleShape2D_jixr7")
