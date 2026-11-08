@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://dt45iul2gkqot" path="res://escenas/personajePrincipal/player.tscn" id="2_oybuj"]
 [ext_resource type="PackedScene" uid="uid://b6xpyhwlmtwo" path="res://escenas/mundo/puerta.tscn" id="4_an7eq"]
 [ext_resource type="PackedScene" uid="uid://dyo0bmiie1akf" path="res://escenas/ui/pausa.tscn" id="5_uwufe"]
+[ext_resource type="Script" uid="uid://4bswvke4y7g0" path="res://escenas/mundo/cuchillo_maldito.gd" id="6_grcuf"]
+[ext_resource type="Texture2D" uid="uid://qg2hsh0shilv" path="res://assets/sprites/ui/icono_cuchillo.png" id="7_6w85x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oybuj"]
 texture = ExtResource("1_orufu")
@@ -1742,6 +1744,12 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_oybuj")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6w85x"]
+size = Vector2(19, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ox3eb"]
+size = Vector2(54, 68)
+
 [node name="Taberna" type="TileMapLayer" unique_id=1362223569]
 y_sort_enabled = true
 position = Vector2(384, 192)
@@ -1762,3 +1770,45 @@ position = Vector2(304, 538)
 escena_destino = "res://escenas/mundo/bosque.tscn"
 
 [node name="Pausa" parent="." unique_id=441528509 instance=ExtResource("5_uwufe")]
+
+[node name="CuchilloMaldito" type="StaticBody2D" parent="." unique_id=1436277699]
+z_index = 1
+position = Vector2(1, 0)
+script = ExtResource("6_grcuf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CuchilloMaldito" unique_id=1263595140]
+z_index = 1
+position = Vector2(554.5, 268)
+shape = SubResource("RectangleShape2D_6w85x")
+
+[node name="Sprite2D" type="Sprite2D" parent="CuchilloMaldito/CollisionShape2D" unique_id=2079721569]
+z_index = 1
+position = Vector2(-2.999964, -7.0000057)
+scale = Vector2(3.5625007, 5.312499)
+texture = ExtResource("7_6w85x")
+
+[node name="ZonaInteracion" type="Area2D" parent="CuchilloMaldito" unique_id=334368696]
+z_index = 1
+position = Vector2(555, 267)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CuchilloMaldito/ZonaInteracion" unique_id=915579468]
+z_index = 1
+position = Vector2(8, -22)
+shape = SubResource("RectangleShape2D_ox3eb")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CuchilloMaldito" unique_id=766227630]
+
+[node name="CuadroDialogo" type="Panel" parent="CuchilloMaldito" unique_id=1167834792]
+visible = false
+z_index = 1
+offset_left = 290.0
+offset_top = 396.0
+offset_right = 724.0
+offset_bottom = 436.0
+
+[node name="Label" type="Label" parent="CuchilloMaldito/CuadroDialogo" unique_id=6092833]
+layout_mode = 0
+offset_right = 428.0
+offset_bottom = 37.0
+
+[connection signal="body_entered" from="CuchilloMaldito/ZonaInteracion" to="CuchilloMaldito" method="_on_zona_interacion_body_entered"]
