@@ -3,14 +3,12 @@ extends Enemigo
 
 ## Jefe final del MVP
 ## Coordina dos fases de combate, patrones de ataque intercambiables y mecanicas de parry
-
 signal fase_cambiada(nueva_fase: int)
 signal quedo_aturdido()
 
 # --- ATRIBUTOS PROPIOS DEL JEFE ---
 @export_group("Fases y Salud")
 @export var _vida_fase_2_porcentaje: float = 0.5 # Se enfurece al 50% de vida
-
 var _fase_actual: int = 1
 var _es_vulnerable_parry: bool = false
 var _tiempo_aturdido: float = 0.0
@@ -22,11 +20,10 @@ var _patron_actual: PatronAtaque = null
 var _patron_embestida: AtaqueEmbestida
 var _patron_platos: AtaqueLanzarPlatos
 var _timer_duracion_ataque: float = 0.0
-
 @onready var _anim: AnimatedSprite2D = $AnimatedSprite2D
+
 func _ready() -> void:
 	FaseManager.ir_a_fase(FaseManager.Fase.PELEA_JEFE)
-
 	_nombre = "Jefe Cocinero"
 	_salud_max = 120.0
 	_velocidad = 100.0
@@ -171,26 +168,19 @@ func al_recibir_parry() -> void:
 func morir() -> void:
 	if _esta_muerto:
 		return
-
 	# Frenamos la IA y mostramos la animacion de muerte
 	_esta_muerto = true
 	_anim.play("death")
 	$Hitbox/CollisionShape2D.set_deferred("disabled", true)
-
 	print("JEFE COCINERO DERROTADO")
-
 	# Desbloqueo seguro de la progresion (si el Autoload ya existe en el proyecto)
 	if has_node("/root/Progresion"):
 		get_node("/root/Progresion").call("romper_sello")
-
 	# Senal que si existe en el EventBus
 	EventBus.jefe_murio.emit(self)
-
 	# Esperamos a que termine la animacion antes de liberar el nodo
 	await _anim.animation_finished
-
 	_soltar_receta()
-
 	# La base hace el resto: emite murio, apaga colisiones y libera
 	_esta_muerto = false
 	super.morir()

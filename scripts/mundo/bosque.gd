@@ -4,7 +4,6 @@ extends Node2D
 
 func _ready() -> void:
 	FaseManager.ir_a_fase(FaseManager.Fase.BOSQUE)
-
 	var e := GameManager.entrada_pendiente
 	var spawn := get_node_or_null("Spawn_" + e)
 	if spawn:

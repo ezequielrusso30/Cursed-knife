@@ -56,7 +56,6 @@ func _cocinar() -> void:
 	var nombre := Inventario.get_primero()
 	if nombre == "":
 		return
-
 	Inventario.quitar(nombre)
 	_jugador.aplicar_efecto(CatalogoIngredientes.get_efecto(nombre))
 	_cocido_en_esta_visita = true

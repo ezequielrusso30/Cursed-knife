@@ -14,7 +14,6 @@ extends Enemigo
 
 #Referencias visuales  (nodos hijos en la escena
 @onready var _anim: AnimatedSprite2D = $AnimatedSprite2D
-
 var _timer_salto: float = 0.0
 @warning_ignore("unused_private_class_variable")
 var _en_el_aire: bool = false
@@ -57,7 +56,6 @@ func perseguir_objetivo(delta: float) -> void:
 	else:
 		#Aplicamos friccion mientras aterriza o espera el proximo salto
 		velocity = velocity.move_toward(Vector2.ZERO, _friccion * delta)
-		
 		move_and_slide()
 
 

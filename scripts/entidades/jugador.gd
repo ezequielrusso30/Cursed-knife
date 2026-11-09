@@ -3,8 +3,12 @@ class_name jugador # Clase jugador
 var estado = "Idle" # estado actual del personaje
 var ultima_direccion = "Down" # Se almacena la ultima direccion
 var atacar = false # si esta atacando
+
 func _ready() -> void:
 	add_to_group("jugador")
+	_vida = EstadoJugador.vida_actual
+	vidaMax = EstadoJugador.vida_max
+	EventBus.ui_actualizar_vida.emit(int(_vida), int(vidaMax))
 
 func _physics_process(delta: float) -> void:
 	if  Input.is_action_just_pressed("ui_accept") : # esto era para testear las animaciones de recibir daño, 
@@ -51,6 +55,8 @@ func recibir_danio(cantidad):
 	if estado == "Muerto" or estado == "Golpeado": return # si esta muerto o golpeado el personaje no recibe daño
 	if cantidad <= 0: return
 	_vida = _vida - cantidad
+	EstadoJugador.guardar(_vida, vidaMax)
+	EventBus.ui_actualizar_vida.emit(int(_vida), int(vidaMax))
 	if _vida <= 0:
 		_vida = 0
 		estado = "Muerto"
