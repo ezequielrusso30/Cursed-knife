@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://b6xpyhwlmtwo" path="res://escenas/mundo/puerta.tscn" id="4_an7eq"]
 [ext_resource type="PackedScene" uid="uid://dyo0bmiie1akf" path="res://escenas/ui/pausa.tscn" id="5_uwufe"]
 [ext_resource type="PackedScene" uid="uid://quo4q2vppimb" path="res://escenas/ui/hud.tscn" id="6_grcuf"]
+[ext_resource type="Texture2D" uid="uid://qg2hsh0shilv" path="res://assets/sprites/ui/icono_cuchillo.png" id="7_6w85x"]
+[ext_resource type="Script" uid="uid://4bswvke4y7g0" path="res://scripts/mundo/cuchillo_maldito.gd" id="7_ox3eb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oybuj"]
 texture = ExtResource("1_orufu")
@@ -1743,6 +1745,12 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_oybuj")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jixr7"]
+size = Vector2(19, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3pib7"]
+size = Vector2(54, 68)
+
 [node name="Taberna" type="TileMapLayer" unique_id=1362223569]
 y_sort_enabled = true
 position = Vector2(384, 192)
@@ -1765,3 +1773,26 @@ escena_destino = "res://escenas/mundo/bosque.tscn"
 [node name="Pausa" parent="." unique_id=441528509 instance=ExtResource("5_uwufe")]
 
 [node name="HUD" parent="." unique_id=1460212074 instance=ExtResource("6_grcuf")]
+
+[node name="CuchilloMaldito" type="StaticBody2D" parent="." unique_id=1006201477]
+z_index = 1
+position = Vector2(1, 0)
+script = ExtResource("7_ox3eb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CuchilloMaldito" unique_id=602305584]
+position = Vector2(554.5, 268)
+shape = SubResource("RectangleShape2D_jixr7")
+
+[node name="Sprite2D" type="Sprite2D" parent="CuchilloMaldito" unique_id=2088493611]
+position = Vector2(551.5, 261)
+scale = Vector2(3.56, 5.31)
+texture = ExtResource("7_6w85x")
+
+[node name="ZonaInteracion" type="Area2D" parent="CuchilloMaldito" unique_id=1917589139]
+position = Vector2(555, 267)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CuchilloMaldito/ZonaInteracion" unique_id=1191661996]
+position = Vector2(8, -22)
+shape = SubResource("RectangleShape2D_3pib7")
+
+[connection signal="body_entered" from="CuchilloMaldito/ZonaInteracion" to="CuchilloMaldito" method="_on_zona_interacion_body_entered"]

@@ -23,6 +23,10 @@ var _timer_duracion_ataque: float = 0.0
 @onready var _anim: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
+	# Si ya conseguiste la receta, el jefe no vuelve a aparecer.
+	if EstadoJugador.receta_obtenida:
+		queue_free()
+		return
 	FaseManager.ir_a_fase(FaseManager.Fase.PELEA_JEFE)
 	_nombre = "Jefe Cocinero"
 	_salud_max = 120.0

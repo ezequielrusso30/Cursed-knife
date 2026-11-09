@@ -7,6 +7,10 @@ var vida_max: int = 100
 var vida_actual: int = 100
 var receta_obtenida: bool = false
 
+func _ready() -> void:
+	GameManager.juego_iniciado.connect(reiniciar)
+
+## Guarda la vida actual para el proximo cambio de escena.
 func guardar(actual: float, maxima: float) -> void:
 	vida_max = int(maxima)
 	vida_actual = clampi(int(actual), 0, vida_max)

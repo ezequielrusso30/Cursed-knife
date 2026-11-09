@@ -9,6 +9,7 @@ var _ingredientes: Dictionary = {}
 
 func _ready() -> void:
 	EventBus.item_recolectado.connect(_on_item_recolectado)
+	GameManager.juego_iniciado.connect(limpiar)
 
 func _on_item_recolectado(datos: Dictionary) -> void:
 	agregar(datos.get("nombre", "desconocido"))

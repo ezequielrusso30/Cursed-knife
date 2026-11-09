@@ -21,8 +21,13 @@ func _ready() -> void:
 	_zona.body_exited.connect(_on_salida)
 
 func _on_entrada(body: Node2D) -> void:
-	if body.is_in_group("jugador"):
-		_jugador = body
+	if not body.is_in_group("jugador"):
+		return
+
+	_jugador = body
+
+	if Inventario.get_total() <= 0:
+		EventBus.ui_mostrar_mensaje.emit("No tenes ingredientes para cocinar")
 
 func _on_salida(body: Node2D) -> void:
 	if body != _jugador:
@@ -56,7 +61,26 @@ func _cocinar() -> void:
 	var nombre := Inventario.get_primero()
 	if nombre == "":
 		return
+
 	Inventario.quitar(nombre)
-	_jugador.aplicar_efecto(CatalogoIngredientes.get_efecto(nombre))
+
+	var efecto := CatalogoIngredientes.get_efecto(nombre)
+	_jugador.aplicar_efecto(efecto)
 	_cocido_en_esta_visita = true
+
+	EventBus.ui_mostrar_mensaje.emit(_texto_efecto(nombre, efecto))
 	print("Cocinaste: ", nombre)
+
+## Traduce el efecto del ingrediente a un texto para el HUD.
+func _texto_efecto(nombre: String, efecto: Dictionary) -> String:
+	var valor := int(efecto.get("valor", 0))
+
+	match efecto.get("tipo", ""):
+		"danio":
+			return "Cocinaste %s: +%d de danio" % [nombre, valor]
+		"velocidad":
+			return "Cocinaste %s: +%d de velocidad" % [nombre, valor]
+		"curacion":
+			return "Cocinaste %s: +%d de vida" % [nombre, valor]
+		_:
+			return "Cocinaste %s" % nombre

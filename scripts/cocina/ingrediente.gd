@@ -17,6 +17,6 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if not body.is_in_group("jugador"):
 		return
-	EventBus.item_recolectado.emit({"nombre": nombre_ingrediente})
+	EventBus.item_recolectado.emit({"tipo": "ingrediente", "nombre": nombre_ingrediente})
 	print("Recogiste: ", nombre_ingrediente)
 	queue_free()

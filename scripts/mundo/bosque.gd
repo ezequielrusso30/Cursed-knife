@@ -3,7 +3,9 @@
 extends Node2D
 
 func _ready() -> void:
-	FaseManager.ir_a_fase(FaseManager.Fase.BOSQUE)
+	# Si ya conseguiste la receta, la fase final no se pisa al volver al bosque.
+	if not EstadoJugador.receta_obtenida:
+		FaseManager.ir_a_fase(FaseManager.Fase.BOSQUE)
 	var e := GameManager.entrada_pendiente
 	var spawn := get_node_or_null("Spawn_" + e)
 	if spawn:

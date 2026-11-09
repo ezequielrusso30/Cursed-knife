@@ -40,18 +40,24 @@ func _input(event: InputEvent) -> void:
 # control de carteles
 func _procesar_mision_por_choque() -> void:
 	var fase_actual = FaseManager.get_fase_actual()
-	
+
+	# Si ya conseguiste la receta, el cuchillo cierra la mision.
+	if EstadoJugador.receta_obtenida:
+		_mostrar_cartel_pantalla("Cuchillo Maldito: ¡Lo lograste! Esa es la receta ancestral.\nEl sello se rompe... la cocina te libera.\n[Da 2 clics para continuar]")
+		return
+
 	if fase_actual == FaseManager.Fase.TUTORIAL and not _hablo_en_taberna:
 		_hablo_en_taberna = true
 		_mostrar_cartel_pantalla("Cuchillo Maldito: ¡Elfa! Quieres libertad?? vence al cocinero con la receta ancestral...\nBusca los 3 ingredientes sagrados en el bosque para poder pelear.\n[Da 2 clics para continuar]")
 		FaseManager.siguiente_fase() 
 		
 	else:
-		if _ingredientes_recolectados.size() >= CANTIDAD_REQUERIDA:
+		var cantidad: int = Inventario.get_total()
+
+		if cantidad >= CANTIDAD_REQUERIDA:
 			_mostrar_cartel_pantalla("Cuchillo Maldito: ¡Excelente! Los ingredientes están completos.\nJefe Cocinero: ¡¿Cómo?! ¡Esto es una batalla de cocina definitiva y vamos a pelear!\n[¡Combate Habilitado! Da 2 clics para iniciar la pelea]")
 		else:
-			var lista_actual = ", ".join(_ingredientes_recolectados) if _ingredientes_recolectados.size() > 0 else "Ninguno"
-			_mostrar_cartel_pantalla("Cuchillo Maldito: Te faltan ingredientes.\nLlevas: " + str(_ingredientes_recolectados.size()) + "/3 (" + lista_actual + ").\n[Da 2 clics para continuar]")
+			_mostrar_cartel_pantalla("Cuchillo Maldito: Te faltan ingredientes.\nLlevas: " + str(cantidad) + "/3.\n[Da 2 clics para continuar]")
 
 func _mostrar_cartel_pantalla(texto_dialogo: String) -> void:
 	_clics_actuales = 0
@@ -90,5 +96,5 @@ func _borrar_cartel_de_pantalla() -> void:
 		_capa_flotante.queue_free() 
 		_capa_flotante = null
 		
-	if _ingredientes_recolectados.size() >= CANTIDAD_REQUERIDA:
+	if Inventario.get_total() >= CANTIDAD_REQUERIDA:
 		FaseManager.ir_a_fase(FaseManager.Fase.PELEA_JEFE)
