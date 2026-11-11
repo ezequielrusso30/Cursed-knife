@@ -28,11 +28,11 @@ func calcular_posicion() :
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.has_method("recibir_danio"):
-		area.recibir_danio(40)
+		area.recibir_danio($".."._dmg)
 	pass # Replace with function body.
 
 
 func _on_body_entered(body: Node2D) -> void:
 	if  body.has_method("recibir_danio"):
-		body.recibir_danio(40)
+		body.recibir_danio($".."._dmg)
 	pass # Replace with function body.
