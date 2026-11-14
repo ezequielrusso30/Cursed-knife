@@ -1,6 +1,7 @@
 extends Area2D
 class_name Ataque
 
+
 func _physics_process(delta: float) -> void:
 	calcular_posicion()
 

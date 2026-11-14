@@ -1,6 +1,6 @@
 extends Personaje_base
 class_name Jugador # Clase jugador
-
+@onready var attack_sound = preload("res://assets/sonidos/574821__wenpire__slash1.ogg")
 
 func _ready() -> void:
 	add_to_group("jugador")
@@ -41,6 +41,7 @@ func movimiento():
 
 func ataque() :
 	if Input.is_action_just_pressed("atacar") :
+		attack_sound
 		estado = "Atacando"
 		atacar = true
 		animacion(ultima_direccion,estado)
@@ -49,7 +50,7 @@ func ataque() :
 		atacar = false
 	
 	
-## Aplica el efecto de un ingrediente cocinado.
+## Aplica el efecto de un ingrediente coci	nado.
 func aplicar_efecto(efecto: Dictionary) -> void:
 	match efecto.get("tipo", ""):
 		"danio":
