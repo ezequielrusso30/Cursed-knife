@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c8lbeqepddu52"]
 
 [ext_resource type="Script" uid="uid://cdfru443mv42q" path="res://escenas/menu/menu_principal.gd" id="1_7d0fj"]
-[ext_resource type="Texture2D" uid="uid://6xsaxattcohr" path="res://escenas/menu/assets/fondo.png" id="2_gqujs"]
+[ext_resource type="Texture2D" uid="uid://bwgxfyh3vjuah" path="res://assets/sprites/fondos/fondo3.png" id="2_gqujs"]
 
 [node name="MenuPrincipal" type="Control" unique_id=523080787]
 layout_mode = 3

@@ -14,6 +14,10 @@ config/name="cursed-knife"
 run/main_scene="uid://c8lbeqepddu52"
 config/features=PackedStringArray("4.7", "Forward Plus")
 
+[audio]
+
+buses/default_bus_layout=""
+
 [autoload]
 
 EventBus="*uid://bhovxtfsqa566"
@@ -22,6 +26,7 @@ Inventario="*uid://dbc2p3peaycox"
 EstadoJugador="*uid://bemur47arabc3"
 FaseManager="*uid://o2dklyjhk7q6"
 Musicamenu="*uid://c3n7n1eipbolw"
+Transicion="*uid://c8tfu88u1wrmp"
 
 [display]
 
