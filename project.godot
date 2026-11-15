@@ -21,6 +21,7 @@ GameManager="*uid://bvdmwb6emaim0"
 Inventario="*uid://dbc2p3peaycox"
 EstadoJugador="*uid://bemur47arabc3"
 FaseManager="*uid://o2dklyjhk7q6"
+Musicamenu="*uid://c3n7n1eipbolw"
 
 [display]
 
