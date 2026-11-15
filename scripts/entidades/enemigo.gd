@@ -31,7 +31,6 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if _esta_muerto:
 		return
-
 #Si tenemos objetivo asignado y no estamos atacando, lo perseguimos
 	if _objetivo:
 		perseguir_objetivo(delta)
