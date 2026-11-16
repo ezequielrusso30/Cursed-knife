@@ -1,7 +1,4 @@
 ## FaseManager - Autoload
-## Maneja las fases del juego (ej: tutorial, bosque, pelea de jefe).
-## Rastrea la fase actual y notifica cuando cambia.
-## FaseManager - Autoload
 ## Maneja las fases del juego (tutorial, bosque, pelea de jefe, victoria).
 ## Rastrea la fase actual y notifica cuando cambia.
 ## Se carga ultimo porque depende de EventBus y GameManager.
