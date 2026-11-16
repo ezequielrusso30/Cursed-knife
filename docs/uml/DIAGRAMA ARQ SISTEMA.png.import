@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kqcpalydcact"
-path="res://.godot/imported/UML- ENEMIGOS - JEFE ENEMIGO.png-e71299a199fbdb73cfaf7fbef02d255e.ctex"
+uid="uid://b4nv6bk6aucwf"
+path="res://.godot/imported/DIAGRAMA ARQ SISTEMA.png-6b02586bc73190649a64b190df486b98.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://docs/uml/UML- ENEMIGOS - JEFE ENEMIGO.png"
-dest_files=["res://.godot/imported/UML- ENEMIGOS - JEFE ENEMIGO.png-e71299a199fbdb73cfaf7fbef02d255e.ctex"]
+source_file="res://docs/uml/DIAGRAMA ARQ SISTEMA.png"
+dest_files=["res://.godot/imported/DIAGRAMA ARQ SISTEMA.png-6b02586bc73190649a64b190df486b98.ctex"]
 
 [params]
 

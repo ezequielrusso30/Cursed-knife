@@ -1634,7 +1634,6 @@ rotation = 3.1415927
 escena_destino = "res://escenas/mundo/cocina_jefe.tscn"
 
 [node name="Pausa" parent="." unique_id=441528509 instance=ExtResource("6_kdvbw")]
-visible = false
 
 [node name="SpawnerIngredientes" type="Node2D" parent="." unique_id=1922570967 node_paths=PackedStringArray("mapa")]
 script = ExtResource("7_g43oi")
