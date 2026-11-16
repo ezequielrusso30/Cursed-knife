@@ -1,11 +1,15 @@
+
 ## Bosque - Escena de recoleccion de ingredientes.
 ## Fija la fase BOSQUE y ubica al jugador en el spawn segun la entrada usada.
 extends Node2D
 
 func _ready() -> void:
+	Musicamenu.play_ambient()
+
 	# Si ya conseguiste la receta, la fase final no se pisa al volver al bosque.
 	if not EstadoJugador.receta_obtenida:
 		FaseManager.ir_a_fase(FaseManager.Fase.BOSQUE)
+
 	var e := GameManager.entrada_pendiente
 	var spawn := get_node_or_null("Spawn_" + e)
 	if spawn:

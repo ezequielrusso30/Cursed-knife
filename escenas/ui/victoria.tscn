@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dy28l1gfpqypa"]
+
+[ext_resource type="Script" uid="uid://baja6m4hkaxy6" path="res://scripts/menu/victoria.gd" id="1_k3q7l"]
+[ext_resource type="Texture2D" uid="uid://5db86wy4dypp" path="res://assets/sprites/fondos/victoria1.png" id="2_wowcs"]
+
+[node name="Control" type="Control" unique_id=830796321]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k3q7l")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1571348950]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("2_wowcs")
+expand_mode = 1
+
+[node name="Salir" type="Button" parent="." unique_id=1618485516]
+layout_mode = 0
+offset_left = 182.0
+offset_top = 231.0
+offset_right = 458.0
+offset_bottom = 284.0
+flat = true
+
+[connection signal="pressed" from="Salir" to="." method="_on_salir_pressed"]

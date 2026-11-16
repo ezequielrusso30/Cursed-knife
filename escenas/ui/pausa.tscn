@@ -52,9 +52,9 @@ flat = true
 [node name="Pausa" type="TextureRect" parent="Control" unique_id=4400425]
 layout_mode = 0
 offset_left = 133.0
-offset_top = 109.0
-offset_right = 496.0
-offset_bottom = 159.0
+offset_top = 76.0
+offset_right = 498.0
+offset_bottom = 172.0
 texture = ExtResource("2_biuyu")
 expand_mode = 1
 
