@@ -1630,6 +1630,7 @@ escena_destino = "res://escenas/mundo/taberna.tscn"
 
 [node name="Puerta2" parent="." unique_id=665350183 instance=ExtResource("5_srqyd")]
 position = Vector2(327, -142)
+rotation = 3.1415927
 escena_destino = "res://escenas/mundo/cocina_jefe.tscn"
 
 [node name="Pausa" parent="." unique_id=441528509 instance=ExtResource("6_kdvbw")]
