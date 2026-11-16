@@ -1,29 +1,28 @@
-## Pausa - Menu de pausa del juego.
-## Se abre con la tecla de pausa y permite reanudar o volver al menu.
+
 extends CanvasLayer
-
+const menu_principal = "res://escenas/menu/menu_principal.tscn"
+@onready var panel_pausa = $Control
 func _ready() -> void:
-	visible = false
-	$Control/Centrar/Botones/Reanudar.pressed.connect(_on_reanudar)
-	$Control/Centrar/Botones/SalirMenu.pressed.connect(_on_salir_menu)
-
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	panel_pausa.hide()
+func actualizar_elementos_ui(visible_ui: bool) -> void:
+	var elementos = get_tree().get_nodes_in_group("ocultar_en_pausa")
+	for elemento in elementos:
+		elemento.visible = visible_ui
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("pausa"):
+	if event.is_action_pressed("ui_cancel"):
 		if get_tree().paused:
-			_on_reanudar()
-		else:
-			_on_pausar()
-
-func _on_pausar() -> void:
-	get_tree().paused = true
-	visible = true
-	$Control/Centrar/Botones/Reanudar.grab_focus()
-
-func _on_reanudar() -> void:
+			return
+		panel_pausa.show()
+		actualizar_elementos_ui(false)
+		get_tree().paused = true
+		get_viewport().set_input_as_handled()
+func _on_reanudar_pressed() -> void:
 	get_tree().paused = false
-	visible = false
-
-func _on_salir_menu() -> void:
+	panel_pausa.hide()
+	actualizar_elementos_ui(true)
+func _on_salir_pressed() -> void:
 	get_tree().paused = false
-	GameManager.entrada_pendiente = "Sur"
-	get_tree().change_scene_to_file("res://escenas/menú inicio/menu_principal.tscn")
+	actualizar_elementos_ui(true)
+	Musicamenu.play_menusound()
+	get_tree().change_scene_to_file(menu_principal)

@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://dyo0bmiie1akf"]
 
 [ext_resource type="Script" uid="uid://dpbisxu3cylti" path="res://scripts/ui/pausa.gd" id="1_nugm1"]
+[ext_resource type="Texture2D" uid="uid://cby21ksl6c2u" path="res://assets/sprites/ui/pausa1.png" id="2_biuyu"]
+[ext_resource type="Texture2D" uid="uid://b1wneosqa1w8b" path="res://assets/sprites/ui/menu1.png" id="3_8675v"]
+[ext_resource type="Texture2D" uid="uid://d2dnfhlh0yunt" path="res://assets/sprites/ui/reanudar1.png" id="4_we6ft"]
 
 [node name="Pausa" type="CanvasLayer" unique_id=441528509]
 process_mode = 3
@@ -23,26 +26,37 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.6)
 
-[node name="Centrar" type="CenterContainer" parent="Control" unique_id=1624561229]
+[node name="Salir" type="Button" parent="Control" unique_id=1900665827]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = -1
+anchor_right = 0.253
+offset_left = 193.0
+offset_top = 206.00002
+offset_right = 1654.08
+offset_bottom = 436.0
+scale = Vector2(0.15, 0.15)
+icon = ExtResource("3_8675v")
+flat = true
 
-[node name="Botones" type="VBoxContainer" parent="Control/Centrar" unique_id=367399537]
-layout_mode = 2
+[node name="Reanudar" type="Button" parent="Control" unique_id=351160168]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 189.0
+offset_top = 172.0
+offset_right = 1886.0
+offset_bottom = 390.0
+scale = Vector2(0.15, 0.15)
+icon = ExtResource("4_we6ft")
+flat = true
 
-[node name="Titulo" type="Label" parent="Control/Centrar/Botones" unique_id=1269514020]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "PAUSA"
+[node name="Pausa" type="TextureRect" parent="Control" unique_id=4400425]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 109.0
+offset_right = 496.0
+offset_bottom = 159.0
+texture = ExtResource("2_biuyu")
+expand_mode = 1
 
-[node name="Reanudar" type="Button" parent="Control/Centrar/Botones" unique_id=1833802319]
-layout_mode = 2
-text = "REANUDAR"
-
-[node name="SalirMenu" type="Button" parent="Control/Centrar/Botones" unique_id=1415007328]
-layout_mode = 2
-text = "SALIR A MENU"
+[connection signal="pressed" from="Control/Salir" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="Control/Reanudar" to="." method="_on_reanudar_pressed"]

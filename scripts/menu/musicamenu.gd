@@ -8,15 +8,18 @@ func _ready():
 	add_child(music_player)
 	music_player.stream = preload("res://assets/sonidos/menu_sound.mp3")
 	music_player.finished.connect(_on_music_finished)
-	music_player.play()
 	ui_player = AudioStreamPlayer.new()
 	add_child(ui_player)
 	transition_player = AudioStreamPlayer.new()
 	add_child(transition_player)
+	play_menusound()
 func _on_music_finished():
 	music_player.play()
+func play_menusound():
+	if music_player and not music_player.playing:
+		music_player.play()
 func stop_menusound():
-	if music_player.playing:
+	if music_player and music_player.playing:
 		music_player.stop()
 func play_hover():
 	ui_player.stream = preload("res://assets/sonidos/01_hover_bell.wav")

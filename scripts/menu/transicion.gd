@@ -13,7 +13,6 @@ func cambiar_escena(ruta: String):
 	if cambiando:
 		return
 	cambiando = true
-	# Oscurecer la pantalla
 	var tween = create_tween()
 	tween.tween_property(pantalla, "color:a", 1.0, 0.5)
 	await tween.finished
